@@ -178,7 +178,7 @@ $video_url = "/player?stream=1&file=" . urlencode($file_name);
     </main>
 
     <footer class="relative z-10 flex bg-black w-full justify-center p-5">
-        <p>Minnow by <a href="https://github.com/vinterluft" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 underline transition-colors">vinterluft (<span id="year"></span>)</a>. Under the GPL-3.0 License.</p>
+        <p>Minnow by <a href="https://github.com/vinterluft" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 underline transition-colors">vinterluft</a> (<span id="year"></span>). Under the GPL-3.0 License.</p>
     
         <script>
             document.getElementById('year').textContent = new Date().getFullYear();
