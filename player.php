@@ -113,7 +113,7 @@ $video_url = "/player?stream=1&file=" . urlencode($file_name);
 
     <title>Minnow | <?php echo htmlspecialchars($clean_title); ?></title>
 </head>
-<body class="bg-slate-950 cabin h-screen text-white bg-linear-to-b from-black via-slate-950 to-slate-950 flex flex-col">
+<body class="bg-slate-950 cabin min-h-screen text-white bg-linear-to-b from-black via-slate-950 to-slate-950 flex flex-col">
 
     <header>
         <nav class="p-5 flex items-center justify-between">
@@ -177,7 +177,7 @@ $video_url = "/player?stream=1&file=" . urlencode($file_name);
         </div>
     </main>
 
-    <footer class="relative z-10 flex bg-black w-full justify-center p-5">
+    <footer class="flex shrink-0 bg-black w-full justify-center p-5 text-center">
         <p>Minnow by <a href="https://github.com/vinterluft" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 underline transition-colors">vinterluft</a> (<span id="year"></span>). Under the GPL-3.0 License.</p>
     
         <script>

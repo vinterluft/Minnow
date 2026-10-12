@@ -58,7 +58,7 @@ function findMediaPoster($media_path, $video_filename, $allowed_images) {
 
     <title>Minnow</title>
 </head>
-<body class="bg-slate-950 cabin h-screen text-white bg-linear-to-b from-black via-slate-950 to-slate-950 flex flex-col">
+<body class="bg-slate-950 cabin min-h-screen text-white bg-linear-to-b from-black via-slate-950 to-slate-950 flex flex-col">
 
     <header>
         <nav class="p-5 flex items-center justify-between">
@@ -133,7 +133,7 @@ function findMediaPoster($media_path, $video_filename, $allowed_images) {
         </div>
     </main>
 
-    <footer class="flex bg-black w-full justify-center p-5 text-center">
+    <footer class="flex shrink-0 bg-black w-full justify-center p-5 text-center">
         <p>Minnow by <a href="https://github.com/vinterluft" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 underline transition-colors">vinterluft</a> (<span id="year"></span>). Under the GPL-3.0 License.</p>
     
         <script>

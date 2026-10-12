@@ -130,7 +130,7 @@ if ($sort_mode === 'alpha') {
         <?php endif; ?>
     </main>
 
-    <footer class="flex bg-black w-full justify-center p-5 text-center">
+    <footer class="flex shrink-0 bg-black w-full justify-center p-5 text-center">
         <p>Minnow by <a href="https://github.com/vinterluft" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 underline transition-colors">vinterluft</a> (<span id="year"></span>). Under the GPL-3.0 License.</p>
     
         <script>
