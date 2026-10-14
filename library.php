@@ -3,6 +3,7 @@ $config = require 'config.php';
 $media_path = $config['media_path'];
 $allowed_ext = $config['allowed_video'];
 $image_ext = $config['allowed_images'];
+$theme_css = $config['themes'][$config['theme']] ?? $config['themes']['midnight'];
 
 $media = [];
 
@@ -70,6 +71,8 @@ if ($sort_mode === 'alpha') {
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="<?= htmlspecialchars($theme_css, ENT_QUOTES, 'UTF-8') ?>">
     
     <link rel="icon" href="/logo/favicon.ico" sizes="any">
     <link rel="icon" href="/logo/icon-192.png" type="image/png" sizes="192x192">

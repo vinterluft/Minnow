@@ -1,6 +1,7 @@
 <?php
 $config = require 'config.php';
 $media_path = $config['media_path'];
+$theme_css = $config['themes'][$config['theme']] ?? $config['themes']['midnight'];
 
 $recent_media = [];
 
@@ -50,6 +51,8 @@ function findMediaPoster($media_path, $video_filename, $allowed_images) {
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="<?= htmlspecialchars($theme_css, ENT_QUOTES, 'UTF-8') ?>">
     
     <link rel="icon" href="/logo/favicon.ico" sizes="any">
     <link rel="icon" href="/logo/icon-192.png" type="image/png" sizes="192x192">
@@ -86,28 +89,27 @@ function findMediaPoster($media_path, $video_filename, $allowed_images) {
         <h4 class="text-3xl mt-8 md:mt-20">Recently Added</h4>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 w-full mt-5 max-w-5xl">
-            <?php if (!empty($recent_media)): ?>
-                <?php
-                $index = 0;
-                foreach ($recent_media as $media_file): 
-                    $raw_title = pathinfo($media_file, PATHINFO_FILENAME);
-                    $clean_title = ucwords(str_replace(['.', '_', '-'], ' ', $raw_title));
-            
-                    $cover_url = findMediaPoster($media_path, $media_file, $config['allowed_images']);
-            
-                    if (!empty($cover_url)) {
-                        $poster_url = $cover_url;
-                    } else {
-                        $poster_url = "https://placehold.co/400x600/0f172a/94a3b8?text=" . urlencode($clean_title);
-                    }
-                    
-                    $visibility_class = "block";
-                    if ($index === 3) {
-                        $visibility_class = "block md:hidden lg:block";
-                    } elseif ($index === 4) {
-                        $visibility_class = "hidden lg:block";
-                    }
-                ?>
+            <?php
+            $index = 0;
+            foreach ($recent_media as $media_file): 
+                $raw_title = pathinfo($media_file, PATHINFO_FILENAME);
+                $clean_title = ucwords(str_replace(['.', '_', '-'], ' ', $raw_title));
+        
+                $cover_url = findMediaPoster($media_path, $media_file, $config['allowed_images']);
+        
+                if (!empty($cover_url)) {
+                    $poster_url = $cover_url;
+                } else {
+                    $poster_url = "https://placehold.co/400x600/0f172a/94a3b8?text=" . urlencode($clean_title);
+                }
+                
+                $visibility_class = "block";
+                if ($index === 3) {
+                    $visibility_class = "block md:hidden lg:block";
+                } elseif ($index === 4) {
+                    $visibility_class = "hidden lg:block";
+                }
+            ?>
                 <a href="/player?<?php echo urlencode($media_file); ?>" class="<?php echo $visibility_class; ?>">
                     <img src="<?php echo htmlspecialchars($poster_url); ?>"
                         alt="<?php echo htmlspecialchars($clean_title); ?>"
@@ -120,16 +122,15 @@ function findMediaPoster($media_path, $video_filename, $allowed_images) {
             <?php
                 $index++;
             endforeach; ?>
-            <?php else: ?>
-                <?php for($i = 0; $i < 5; $i++): ?>
-                    <div class="relative w-full rounded-lg border-2 border-dashed border-slate-800 bg-slate-900/50 flex items-center justify-center text-gray-500 text-sm font-medium overflow-hidden shadow-lg">
-                        <svg class="w-full h-auto pointer-events-none" viewBox="0 0 400 600"></svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            Empty Slot
-                        </div>
+            <?php $placeholder_count = 5 - count($recent_media); ?>
+            <?php for($i = 0; $i < $placeholder_count; $i++): ?>
+                <div class="relative w-full rounded-lg border-2 border-dashed border-slate-800 bg-slate-900/50 flex items-center justify-center text-gray-500 text-sm font-medium overflow-hidden shadow-lg">
+                    <svg class="w-full h-auto pointer-events-none" viewBox="0 0 400 600"></svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        Empty Slot
                     </div>
-                <?php endfor; ?>
-            <?php endif; ?>
+                </div>
+            <?php endfor; ?>
         </div>
     </main>
 

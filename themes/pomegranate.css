@@ -1,0 +1,96 @@
+body {
+  background: linear-gradient(
+    180deg,
+    #0f0606 0%,
+    #2e0d10 42%,
+    #46181a 74%,
+    #743737 100%
+  ) !important;
+  background-attachment: fixed !important;
+  color: #fff4e6 !important;
+}
+
+/* Page stuff */
+header,
+footer,
+.bg-black {
+  background-color: #110607 !important;
+}
+
+.bg-slate-950 {
+  background-color: #321515 !important;
+}
+
+.bg-slate-900 {
+  background-color: #522020 !important;
+}
+
+.bg-slate-900\/50 {
+  background-color: rgba(82, 32, 32, 0.5) !important;
+}
+
+/* Text */
+.text-white,
+.text-slate-200 {
+  color: #ffacac !important;
+}
+
+.text-gray-400,
+.text-gray-500,
+.text-slate-300 {
+  color: #ffe6e6 !important;
+}
+
+/* Other bullshit */
+.border-slate-900 {
+  border-color: #743030 !important;
+}
+
+.border-slate-800 {
+  border-color: #953d4d !important;
+}
+
+.focus\:border-slate-800:focus {
+  border-color: #ff6969 !important;
+}
+
+.border-dashed {
+  border-color: #a94850 !important;
+}
+
+input::placeholder {
+  color: #ea9e9e !important;
+  opacity: 1;
+}
+
+/* Interactive accents */
+.hover\:bg-slate-900:hover {
+  background-color: #4e1c1c !important;
+}
+
+.hover\:text-white:hover,
+.hover\:text-slate-300:hover {
+  color: #ffacac !important;
+}
+
+.hover\:text-blue-500:hover {
+  color: #ff6666 !important;
+}
+
+/* Search */
+.hover\:bg-slate-800:hover {
+  background-color: #44191d !important;
+}
+
+.group:hover .group-hover\:text-white {
+  color: #ebacaf !important;
+}
+
+.border-slate-950\/40 {
+  border-color: rgba(44, 14, 17, 0.4) !important;
+}
+
+/* Don't touch unless ugliness */
+#video-frame {
+  background-color: black !important;
+}

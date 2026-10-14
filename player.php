@@ -1,6 +1,7 @@
 <?php
 $config = require 'config.php';
 $media_path = $config['media_path'];
+$theme_css = $config['themes'][$config['theme']] ?? $config['themes']['midnight'];
 
 if (isset($_GET['stream']) && isset($_GET['file'])) {
     $file_name = basename($_GET['file']); 
@@ -105,6 +106,8 @@ $video_url = "/player?stream=1&file=" . urlencode($file_name);
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="<?= htmlspecialchars($theme_css, ENT_QUOTES, 'UTF-8') ?>">
     
     <link rel="icon" href="/logo/favicon.ico" sizes="any">
     <link rel="icon" href="/logo/icon-192.png" type="image/png" sizes="192x192">
@@ -113,7 +116,7 @@ $video_url = "/player?stream=1&file=" . urlencode($file_name);
 
     <title>Minnow | <?php echo htmlspecialchars($clean_title); ?></title>
 </head>
-<body class="bg-slate-950 cabin min-h-screen text-white bg-linear-to-b from-black via-slate-950 to-slate-950 flex flex-col">
+<body class="bg-slate-950 cabin h-dvh overflow-hidden text-white bg-linear-to-b from-black via-slate-950 to-slate-950 flex flex-col">
 
     <header>
         <nav class="p-5 flex items-center justify-between">
@@ -132,7 +135,7 @@ $video_url = "/player?stream=1&file=" . urlencode($file_name);
         </nav>
     </header>
 
-    <main class="flex-1 flex flex-col items-center px-4 md:px-6 py-6 md:py-10 max-w-6xl mx-auto w-full">
+    <main class="flex-1 min-h-0 flex flex-col items-center justify-center px-4 md:px-6 py-6 md:py-10 max-w-6xl mx-auto w-full">
         <h1 class="relative z-10 text-xl sm:text-2xl md:text-3xl mb-6 font-bold tracking-wide text-slate-200 w-full text-left">
             <?php echo htmlspecialchars($clean_title); ?>
         </h1>
@@ -140,7 +143,7 @@ $video_url = "/player?stream=1&file=" . urlencode($file_name);
         <div class="relative w-full max-w-6xl mx-auto" style="isolation:isolate;">
             <canvas id="ambient-glow" class="absolute inset-0 w-full h-full" style="transform: scale(1.06); filter: blur(50px) saturate(1.3) brightness(0.6); z-index: 0; opacity: 0; transition: opacity .6s;"></canvas>
             
-            <div class="relative w-full bg-black rounded-xl overflow-hidden border-2 border-slate-900 aspect-video group" style="z-index: 1;">
+            <div id="video-frame" class="relative w-full bg-black rounded-xl overflow-hidden border-2 border-slate-900 aspect-video group" style="z-index: 1;">
                 <video id="video-player" src="<?php echo htmlspecialchars($video_url); ?>" class="w-full h-full">Your browser does not support the video tag.</video>
 
                 <div id="controls" class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent px-4 pt-10 pb-3 opacity-0 transition-opacity duration-300 z-10">

@@ -22,7 +22,7 @@ Navigate to the project directory and create a folder with a suitable name. (e.g
 
 3. Configure Your Path
 
-Open `config.php` in any editor and point the media_path variable to the directory you just made. (e.g. /Media).
+Open `config.php` in any editor and point the media_path config entry to the directory you just made. (e.g. /Media).
 
 I recommend you have the media directory in the same path as your project. I have not tested it in any other way but I do not think it works.
 
@@ -31,11 +31,13 @@ I recommend you have the media directory in the same path as your project. I hav
 You have multiple options here.
 
 The easiest is with PHP's built-in server:
+
 ```bash
 # Navigate to your project directory and then run:
 php -S localhost:8000
 ```
-Then open http://localhost:8000 in your web browser.
+
+Then open [http://localhost:8000](http://localhost:8000) in your web browser.
 
 Your second option is any other server that can handle PHP.
 Personally I used nginx but i will not include instructions for that. You will have to research that yourself.
@@ -46,8 +48,34 @@ Move your supported video files (supported formats for all files are listed in `
 
 6. Enjoy!
 
+## Themes
+
+To change theme you change the 'theme' value to one of the ones listed below in the config. The list is also where you would add your own custom themes.
+
+For example:
+`'theme' => 'noise',`
+
+#### Photos examples of the themes
+
+Default
+![Default theme](examples/default.png)
+
+Sunset
+![Sunset theme](examples/sunset.png)
+
+Pomegranate
+![Pomegranate theme](examples/pomegranate.png)
+
+Royal
+![Royal theme](examples/royal.png)
+
+Noise
+![Noise theme](examples/noise.png)
+
 ### Note
-If you know how to add your own formats/extensions then feel free. I tried to make it as easy as possible to do.
+
+I do not know if anything other than MP4 and JPG works as I have not tested anything else. MP4 with AAC audio works for me and I would assume most image formats work.
 
 ### Credits
+
 Logo Design: [@Remocore](https://github.com/Remorse69)

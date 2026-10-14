@@ -1,3 +1,7 @@
+<?php
+$config = require 'config.php';
+$theme_css = $config['themes'][$config['theme']] ?? $config['themes']['midnight'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="<?= htmlspecialchars($theme_css, ENT_QUOTES, 'UTF-8') ?>">
     
     <link rel="icon" href="/logo/favicon.ico" sizes="any">
     <link rel="icon" href="/logo/icon-192.png" type="image/png" sizes="192x192">
