@@ -116,7 +116,7 @@ $video_url = "/player?stream=1&file=" . urlencode($file_name);
 
     <title>Minnow | <?php echo htmlspecialchars($clean_title); ?></title>
 </head>
-<body class="bg-slate-950 cabin h-dvh overflow-hidden text-white bg-linear-to-b from-black via-slate-950 to-slate-950 flex flex-col">
+<body class="bg-slate-950 cabin min-h-screen text-white bg-linear-to-b from-black via-slate-950 to-slate-950 flex flex-col">
 
     <header>
         <nav class="p-5 flex items-center justify-between">
@@ -135,7 +135,7 @@ $video_url = "/player?stream=1&file=" . urlencode($file_name);
         </nav>
     </header>
 
-    <main class="flex-1 min-h-0 flex flex-col items-center justify-center px-4 md:px-6 py-6 md:py-10 max-w-6xl mx-auto w-full">
+    <main class="flex-1 flex flex-col items-center justify-center px-4 md:px-6 py-6 md:py-10 max-w-6xl mx-auto w-full">
         <h1 class="relative z-10 text-xl sm:text-2xl md:text-3xl mb-6 font-bold tracking-wide text-slate-200 w-full text-left">
             <?php echo htmlspecialchars($clean_title); ?>
         </h1>

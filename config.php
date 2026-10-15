@@ -14,7 +14,7 @@ return [
 
     // Enter the desired theme here
     // Leave empty for default
-    'theme' => '',
+    'theme' => 'sunset',
 
     // List of available themes
     // These are just the ones I made but you can make your own
